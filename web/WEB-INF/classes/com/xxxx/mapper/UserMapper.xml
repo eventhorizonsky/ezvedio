@@ -5,11 +5,12 @@
 <!--    id: 对应Dao层(Mapper)接口方法名 parameterType: 指定参数类型 resultType: 指定返回值类型 -->
 <!--    useGeneratedKeys = "true" 把新增加的主键赋值到自己定义的keyProperty(id)中  -->
     <select id="queryUserByName" parameterType="String" resultType="com.xxxx.entity.User">
-        SELECT * FROM tb_user WHERE userName = #{userName}
+        SELECT * FROM User WHERE userName = #{userName}
     </select>
     <insert id="insertUser" parameterType="com.xxxx.entity.User">
-        INSERT INTO tb_user VALUES(#{userId}, #{userName}, #{userPwd}, #{userAge})
+        INSERT INTO User VALUES(#{userName}, #{userPwd}, #{userPnum}, #{userEmail})
     </insert>
+
     <delete id="deleteUserById" parameterType="Integer">
         DELETE FROM tb_user WHERE userId = #{userId}
     </delete>
