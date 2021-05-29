@@ -74,7 +74,7 @@
             <div class="mdui-m-t-3">
                 <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600" type="button" id="loginBtn">登录</button>
             </div>
-        </form>、
+        </form>
 
         <div class="mdui-m-t-4 ">
             <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="forgetPassord.jsp">忘记密码</a>

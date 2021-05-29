@@ -57,7 +57,7 @@
 <div class="mdui-shadow-1 mdui-center mdui-m-b-5" style="background-color:white;height:675px;width:450px;border-radius:4px;margin-top: 50px;">
   <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.8;">
     &nbsp;
-    <a style="opacity:1;font-size: 12px;text-decoration:none;color: blue;" href="login.html">返回登录</a>
+    <a style="opacity:1;font-size: 12px;text-decoration:none;color: blue;" href="login.jsp">返回登录</a>
     <div class="mdui-valign" style="padding: 1px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
   </div>
   <div class="mdui-m-l-3 mdui-m-r-3" >
