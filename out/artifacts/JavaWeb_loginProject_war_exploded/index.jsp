@@ -18,6 +18,7 @@
     <%
       }
       else{
+        //若直接进入index.jsp则跳转回主页
         request.getRequestDispatcher("login.jsp").forward(request,response);
       }
     %>
