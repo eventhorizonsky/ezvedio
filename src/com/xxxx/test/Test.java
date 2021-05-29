@@ -18,19 +18,8 @@ public class Test {
 //        //测试连接数据库是否成功
 //        System.out.println(user);
 
-//        /*测试插入数据到数据库*/
-//        User u = new User(3, "ls123", "123456", 19);
-//        userMapper.insertUser(u);
-//        session.commit();  //插入数据后需要提交到数据库
-//
-//        /*测试从数据库删除数据*/
-//        userMapper.deleteUserById(u.getUserId());
-//        session.commit();
-
-        /*测试修改密码*/
-//        userMapper.updatePwdById(u.getUserId(),"321654");
-//        session.commit();
-
-
+        User user  = new User("zs123", "123456", "789456", "456@456.com");
+        userMapper.insertUser(user);
+        session.commit();
     }
 }
