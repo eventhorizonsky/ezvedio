@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 首先来解析namespace: 命名空间, 此属性通常用来映射Dao层接口(Mapper) -->
+<mapper namespace="com.xxxx.mapper.UserMapper">
+<!--    id: 对应Dao层(Mapper)接口方法名 parameterType: 指定参数类型 resultType: 指定返回值类型 -->
+<!--    useGeneratedKeys = "true" 把新增加的主键赋值到自己定义的keyProperty(id)中  -->
+    <select id="queryUserByName" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM tb_user WHERE userName = #{userName}
+    </select>
+</mapper>
