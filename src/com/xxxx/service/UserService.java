@@ -123,7 +123,7 @@ public class UserService {
         SqlSession sqlSession = GetSqlSession.createSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
-        if(!u.getUserName().equals(userMapper.queryUserByName(u.getUserName()))){
+        if(userMapper.queryUserByName(u.getUserName()) != null){
             messageModel.setCode(0);
             messageModel.setMsg("用户名已存在!");
 
