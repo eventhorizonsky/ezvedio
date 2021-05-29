@@ -21,7 +21,7 @@ public class StringUtil {
     }
 
     public static boolean isEqual(String pwd, String cpwd) {
-        if(pwd == cpwd) {
+        if(pwd.equals(cpwd)) {
             return true;
         }
         return false;

@@ -126,11 +126,13 @@ public class UserService {
         if(userMapper.queryUserByName(u.getUserName()) != null){
             messageModel.setCode(0);
             messageModel.setMsg("用户名已存在!");
-
+            System.out.println(messageModel.getMsg());
             return messageModel;
         }
 
         //注册成功
+
+        messageModel.setCode(1);
         messageModel.setObject(u);
 
 
