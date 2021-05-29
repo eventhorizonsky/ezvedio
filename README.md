@@ -1,6 +1,6 @@
 ### 项目概述
 
-本项目是采用**M**aterial **D**esign设计基于javaweb开发的兼职平台，将提供
+本项目是采用**M**aterial **D**esign设计基于javaweb开发的兼职平台，将提供:
 
 - 公司招聘
 - 教师简历信息
