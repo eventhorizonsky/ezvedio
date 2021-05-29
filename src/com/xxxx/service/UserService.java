@@ -1,6 +1,7 @@
 package com.xxxx.service;
 
 import com.xxxx.entity.User;
+import com.xxxx.entity.userSignup;
 import com.xxxx.entity.vo.MessageModel;
 import com.xxxx.mapper.UserMapper;
 import com.xxxx.util.GetSqlSession;
@@ -74,7 +75,13 @@ public class UserService {
         return messageModel;
     }
 
-//    public MessageModel userSignup(String uname, String upwd){
-//
-//    }
+    public MessageModel userSignup(String uname, String upwd, String cupwd, String upnum, String uemail){
+        MessageModel messageModel = new MessageModel();
+        userSignup u = new userSignup(uname, upwd, upnum, uemail);  //构造函数
+
+        //参数非空判断
+
+
+        return messageModel;
+    }
 }
