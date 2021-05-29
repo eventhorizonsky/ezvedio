@@ -1,7 +1,6 @@
 package com.xxxx.service;
 
 import com.xxxx.entity.User;
-import com.xxxx.entity.userSignup;
 import com.xxxx.entity.vo.MessageModel;
 import com.xxxx.mapper.UserMapper;
 import com.xxxx.util.GetSqlSession;
@@ -77,9 +76,62 @@ public class UserService {
 
     public MessageModel userSignup(String uname, String upwd, String cupwd, String upnum, String uemail){
         MessageModel messageModel = new MessageModel();
-        userSignup u = new userSignup(uname, upwd, upnum, uemail);  //构造函数
+        User u = new User();  //构造函数
+
+        //回显数据
+        u.setUserName(uname);
+        u.setUserPnum(upwd);
+        u.setUserPnum(upnum);
+        u.setUserEmail(uemail);
+        messageModel.setObject(u);
 
         //参数非空判断
+        if(StringUtil.isEmpty(uname)){
+            messageModel.setCode(0);
+            messageModel.setMsg("用户名不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(upwd) || StringUtil.isEmpty(cupwd)){
+            messageModel.setCode(0);
+            messageModel.setMsg("密码不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(upnum)){
+            messageModel.setCode(0);
+            messageModel.setMsg("联系方式不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(uemail)){
+            messageModel.setCode(0);
+            messageModel.setMsg("电子邮箱不能为空!");
+
+            return messageModel;
+        }
+
+        //判断密码和确认密码是否一致
+        if (!StringUtil.isEqual(upwd, cupwd)){
+            messageModel.setCode(0);
+            messageModel.setMsg("密码和确认密码不一致!");
+
+            return messageModel;
+        }
+
+        //判断用户名是否已使用
+        SqlSession sqlSession = GetSqlSession.createSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        if(!u.getUserName().equals(userMapper.queryUserByName(u.getUserName()))){
+            messageModel.setCode(0);
+            messageModel.setMsg("用户名已存在!");
+
+            return messageModel;
+        }
+
+        //注册成功
+        messageModel.setObject(u);
 
 
         return messageModel;

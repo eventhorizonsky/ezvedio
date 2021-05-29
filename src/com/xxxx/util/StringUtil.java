@@ -19,4 +19,11 @@ public class StringUtil {
         }
         return false;
     }
+
+    public static boolean isEqual(String pwd, String cpwd) {
+        if(pwd == cpwd) {
+            return true;
+        }
+        return false;
+    }
 }
