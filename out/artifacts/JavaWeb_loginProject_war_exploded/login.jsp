@@ -69,17 +69,17 @@
                 <input class="mdui-textfield-input"  type="password" name = "upwd" id="upwd"  value="${messageModel.object.userPwd}"/><br>
             </div>
             <div class="mdui-valign">
-                <span class="mdui-center" id="msg" style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">我是提示</span>
+                <span class="mdui-center" id="msg" style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">${messageModel.msg}</span>
             </div>
             <div class="mdui-m-t-3">
                 <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600" type="button" id="loginBtn">登录</button>
             </div>
-        </form>
+        </form>、
 
         <div class="mdui-m-t-4 ">
-            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="">忘记密码</a>
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="forgetPassord.html">忘记密码</a>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&nbsp;
-            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="">注册账号</a>
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="register.html">注册账号</a>
         </div>
     </div>
 </div>
