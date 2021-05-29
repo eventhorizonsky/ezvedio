@@ -53,22 +53,19 @@
   </ul>
 </div>
 
-<!-- 账号登录框 -->
-<form action="register">
-<div class="mdui-shadow-1 mdui-center mdui-m-b-3" style="background-color:white;height:850px;width:450px;border-radius:4px;margin-top: 100px;">
-  <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.5;">
-    <div class="mdui-valign" style="padding: 18px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
+<!-- 账号注册框 -->
+<div class="mdui-shadow-1 mdui-center mdui-m-b-5" style="background-color:white;height:675px;width:450px;border-radius:4px;margin-top: 50px;">
+  <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.8;">
+    &nbsp;
+    <a style="opacity:1;font-size: 12px;text-decoration:none;color: blue;" href="login.html">返回登录</a>
+    <div class="mdui-valign" style="padding: 1px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
   </div>
   <div class="mdui-m-l-3 mdui-m-r-3" >
     <div class="mdui-textfield mdui-textfield-floating-label">
       <label class="mdui-textfield-label">姓&nbsp;&nbsp;名：</label>
       <input class="mdui-textfield-input" type="text"/>
     </div>
-    <div class="mdui-textfield" style="height: 25px;">
-      <span class="mdui-valign" style="opacity:0.5;">
-        <p class="mdui-text-left">性&nbsp;&nbsp;别：<input type="radio" name="sex" id="sex"/>男<input type="radio" name="sex" id="sex"/>女</p>
-      </span>
-    </div>
+
     <div class="mdui-textfield mdui-textfield-floating-label">
       <label class="mdui-textfield-label">密&nbsp;&nbsp;码：</label>
       <input class="mdui-textfield-input" type="password"/>
@@ -83,26 +80,18 @@
     </div>
     <div class="mdui-textfield mdui-textfield-floating-label">
       <label class="mdui-textfield-label">电子邮箱：</label>
-      <input class="mdui-textfield-input" type="email"/>
+      <input class="mdui-textfield-input" type="email"/><br>
     </div>
-    <div class="mdui-textfield mdui-textfield-floating-label">
-      <label class="mdui-textfield-label">工作经历：</label>
-      <textarea class="mdui-textfield-input"></textarea>
+    <div class="mdui-textfield mdui-textfield-floating-label" style="margin-top: -12px;">
+      <label class="mdui-textfield-label">验证码：</label>
+      <input class="mdui-textfield-input" type="email"/><br>
     </div>
-    <div class="mdui-textfield mdui-textfield-floating-label">
-      <label class="mdui-textfield-label">荣誉获得：</label>
-      <textarea class="mdui-textfield-input"></textarea>
-    </div>
-    <div class="mdui-textfield mdui-textfield-floating-label">
-      <label class="mdui-textfield-label">荣誉证明：</label>
-      <input class="mdui-textfield-input" type=""/><br>
-    </div>
-    <div class="mdui-m-t-3 mdui-m-b-3">
+    <div class="mdui-m-t-3 mdui-m-b-4">
       <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600">注册</button>
     </div>
   </div>
 </div>
-</form>
+
 
 <script
         src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
