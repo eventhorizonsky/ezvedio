@@ -1,0 +1,9 @@
+学生个人信息表
+1.昵称——nickname
+2.电话——phone
+3.邮箱——email
+4.专业——profession
+5.个人简介——profile
+6.年级——grade
+7.性别——gender
+8.（可选）简历文件（上传项提交表单会变得不一样）——resume
