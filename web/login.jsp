@@ -9,18 +9,81 @@
 <html>
 <head>
     <title>用户登录</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"/>
 </head>
-<body>
-    <div style="text-align: center">
-<%--        form action加 / 表示绝对路径, 默认从localhost:8080后面找, 需要写为/loginProject/login  --%>
-        <form action="login" method="post" id="loginForm"> <!-- web为根目录, 可直接写相对路径login -->
-            姓名: <input type="text" name = "uname" id="uname" value="${messageModel.object.userName}"><br>  <!-- 写用户对象的字段,用userName -->
-            密码: <input type="password" name = "upwd" id="upwd"  value="${messageModel.object.userPwd}"><br>
-            <span id = "msg" style="font-size: 12px; color: red">${messageModel.msg}</span><br>
-            <button type="button" id="loginBtn">登录</button>
-            <button type="button">注册</button>
-        </form>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto mdui-loaded" style="background-color: #fafafa;">
+
+<!-- 首页导航栏 -->
+<div class="mdui-appbar  mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}"><i class="mdui-icon material-icons">menu</i></a>
+        <a href="javascript:;" class="mdui-typo-headline">举贤</a>
+        <a href="javascript:;" class="mdui-typo-title">大学生多元兼职平台</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">settings</i></a>
     </div>
+</div>
+
+<!-- 抽屉式侧边栏 -->
+<div class="mdui-drawer mdui-shadow-1" id="left-drawer"  style="top:63px;background-color: #ffffff;box-shadow: 1px 0px 1px #e0e0e0;">
+    <ul class="mdui-list">
+        <li class="mdui-list-item mdui-ripple">
+            <!-- <i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i> -->
+            <i class="mdui-icon material-icons mdui-list-item-icon">person</i>
+            <div class="mdui-list-item-content">登录/注册</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
+            <div class="mdui-list-item-content">招聘</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">send</i>
+            <div class="mdui-list-item-content">应聘</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <!-- <i class="mdui-list-item-icon mdui-icon material-icons">drafts</i> -->
+            <i class="mdui-icon material-icons mdui-list-item-icon">exit_to_app</i>
+            <div class="mdui-list-item-content">退出</div>
+        </li>
+    </ul>
+</div>
+<div class="mdui-shadow-1 mdui-center" style="background-color:white;height:380px;width:450px;border-radius:4px;margin-top: 100px;">
+    <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.5;">
+        <div class="mdui-valign" style="padding: 28px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
+    </div>
+    <div class="mdui-m-l-3 mdui-m-r-3" >
+        <form action="login" method="post" id="loginForm"> <!-- web为根目录, 可直接写相对路径login -->
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label" >账&nbsp;&nbsp;号：</label>
+                <input class="mdui-textfield-input" name = "uname" id="uname" value="${messageModel.object.userName}"type="text"/>
+                <label class="mdui-textfield-label">密&nbsp;&nbsp;码：</label>
+                <input class="mdui-textfield-input"  type="password" name = "upwd" id="upwd"  value="${messageModel.object.userPwd}"/><br>
+            </div>
+            <div class="mdui-m-t-3">
+                <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600" type="button" id="loginBtn">登录</button>
+            </div>
+        </form>
+
+        <div class="mdui-m-t-4 ">
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="">忘记密码</a>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&nbsp;
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="">注册账号</a>
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+        integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+        crossorigin="anonymous"
+></script>
+
 </body>
 <%-- 引入jQuery的js文件 --%>
 <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
