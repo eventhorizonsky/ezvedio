@@ -77,9 +77,9 @@
         </form>、
 
         <div class="mdui-m-t-4 ">
-            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="forgetPassord.html">忘记密码</a>
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="forgetPassord.jsp">忘记密码</a>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&nbsp;
-            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="register.html">注册账号</a>
+            <a class="mdui-text-color-blue-900" style="text-decoration:none;" href="register.jsp">注册账号</a>
         </div>
     </div>
 </div>
