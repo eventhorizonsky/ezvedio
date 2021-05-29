@@ -54,6 +54,7 @@
 </div>
 
 <!-- 账号登录框 -->
+<form action="register">
 <div class="mdui-shadow-1 mdui-center mdui-m-b-3" style="background-color:white;height:850px;width:450px;border-radius:4px;margin-top: 100px;">
   <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.5;">
     <div class="mdui-valign" style="padding: 18px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
@@ -101,6 +102,7 @@
     </div>
   </div>
 </div>
+</form>
 
 <script
         src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
