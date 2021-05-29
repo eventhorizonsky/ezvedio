@@ -61,7 +61,7 @@
     <div class="mdui-m-l-3 mdui-m-r-3" >
         <form action="login" method="post" id="loginForm"> <!-- web为根目录, 可直接写相对路径login -->
             <div class="mdui-textfield mdui-textfield-floating-label">
-                <label class="mdui-textfield-label" >账&nbsp;&nbsp;号：</label>
+                <label class="mdui-textfield-label" >账&nbsp;&nbsp;号测试：</label>
                 <input class="mdui-textfield-input" name = "uname" id="uname" value="${messageModel.object.userName}"type="text"/>
             </div>
             <div class="mdui-textfield mdui-textfield-floating-label">
