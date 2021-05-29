@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.IOException;
+
 
 @WebServlet("/login") //添加注解
 
@@ -17,6 +17,7 @@ public class UserServlet extends HttpServlet {
 
     //实例化UserService对象
     private UserService userService = new UserService();
+
 
     /**
      * 用户登录
@@ -53,4 +54,6 @@ public class UserServlet extends HttpServlet {
         }
 
     }
+
+
 }
