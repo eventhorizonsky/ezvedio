@@ -53,6 +53,7 @@
         </li>
     </ul>
 </div>
+
 <div class="mdui-shadow-1 mdui-center" style="background-color:white;height:380px;width:450px;border-radius:4px;margin-top: 100px;">
     <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.5;">
         <div class="mdui-valign" style="padding: 28px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
@@ -62,8 +63,13 @@
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label" >账&nbsp;&nbsp;号：</label>
                 <input class="mdui-textfield-input" name = "uname" id="uname" value="${messageModel.object.userName}"type="text"/>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">密&nbsp;&nbsp;码：</label>
                 <input class="mdui-textfield-input"  type="password" name = "upwd" id="upwd"  value="${messageModel.object.userPwd}"/><br>
+            </div>
+            <div class="mdui-valign">
+                <span class="mdui-center" id="msg" style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">我是提示</span>
             </div>
             <div class="mdui-m-t-3">
                 <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600" type="button" id="loginBtn">登录</button>
