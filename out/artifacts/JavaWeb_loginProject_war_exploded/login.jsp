@@ -69,7 +69,7 @@
                 <input class="mdui-textfield-input"  type="password" name = "upwd" id="upwd"  value="${messageModel.object.userPwd}"/><br>
             </div>
             <div class="mdui-valign">
-                <span class="mdui-center" id="msg" style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">${messageModel.msg}</span>
+                <span class="mdui-center"  style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">${messageModel.msg}</span>
             </div>
             <div class="mdui-m-t-3">
                 <button class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-600" type="button" id="loginBtn">登录</button>
@@ -83,7 +83,13 @@
         </div>
     </div>
 </div>
-
+<div class="mdui-dialog"  id="dialog">
+    <div class="mdui-dialog-title">警告</div>
+    <div class="mdui-dialog-content" id="msg">${messageModel.msg}</div>
+    <div class="mdui-dialog-actions">
+        <button  class="mdui-btn mdui-ripple" mdui-dialog-cancel>确认</button>
+    </div>
+</div>
 <script
         src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
         integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
@@ -94,6 +100,7 @@
 <%-- 引入jQuery的js文件 --%>
 <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+    var inst = new mdui.Dialog('#dialog');
     /*
         登录表单验证
     1.给登录按钮绑定点击事件(通过id选择器绑定)
@@ -113,12 +120,14 @@
         if(isEmpty(uname)) {
             //  如果姓名为空,提示用户(span标签赋值),并且return html()
             $("#msg").html("用户姓名不可为空!");
+            inst.open();
             return;
         }
         //  判断密码是否为空
         if(isEmpty(upwd)) {
             //  如果密码为空,提示用户(span标签赋值),并且return html()
             $("#msg").html("用户密码不可为空!");
+            inst.open();
             return;
         }
         // 如果都不为空,则手动提交表单
@@ -137,6 +146,32 @@
         }
         return false;
     }
+    // event
+    var dialog = document.getElementById('dialog');
+
+    dialog.addEventListener('open.mdui.dialog', function () {
+        console.log('open');
+    });
+
+    dialog.addEventListener('opened.mdui.dialog', function () {
+        console.log('opened');
+    });
+
+    dialog.addEventListener('close.mdui.dialog', function () {
+        console.log('close');
+    });
+
+    dialog.addEventListener('closed.mdui.dialog', function () {
+        console.log('closed');
+    });
+
+    dialog.addEventListener('cancel.mdui.dialog', function () {
+        console.log('cancel');
+    });
+
+    dialog.addEventListener('confirm.mdui.dialog', function () {
+        console.log('confirm');
+    });
 
 </script>
 </html>
