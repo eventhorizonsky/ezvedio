@@ -52,10 +52,12 @@
     </li>
   </ul>
 </div>
-
+<div style="width: 100%">
+<div  class="mdui-center" >
 <!-- 招聘卡片 -->
-<div class="mdui-valign" style="margin: 20px 20px;">
-  <div class="mdui-row" style="padding-top:10px;height: 660px;width: 1596px;background-color: blue;">
+<div class="mdui-valign" style="margin: 20px 20px;" >
+  <div class="mdui-row" style="padding-top:10px;height: 660px;width: 1596px;margin-right: 100px;
+    margin-left: 100px;">
 
     <div class="mdui-center" style="margin:0px 0 0 8px;border-radius:10px;width: 1870px;height: 500px;">
       <div class="mdui-card" style="width: 290px;height: 370px;float: left;margin:0px 0 0 20px;">
@@ -153,8 +155,8 @@
 
   </div>
 </div>
-
-
+</div>
+</div>
 
 <script
         src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
