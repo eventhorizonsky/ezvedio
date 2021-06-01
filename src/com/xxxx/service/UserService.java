@@ -74,7 +74,7 @@ public class UserService {
         return messageModel;
     }
 
-    public MessageModel userSignup(String uname, String upwd, String cupwd, String upnum, String uemail){
+    public MessageModel userSignup(String uname, String upwd, String upnum, String uemail){
         MessageModel messageModel = new MessageModel();
         User u = new User();  //构造函数
 
@@ -92,7 +92,7 @@ public class UserService {
 
             return messageModel;
         }
-        if(StringUtil.isEmpty(upwd) || StringUtil.isEmpty(cupwd)){
+        if(StringUtil.isEmpty(upwd)){
             messageModel.setCode(0);
             messageModel.setMsg("密码不能为空!");
 
@@ -111,13 +111,6 @@ public class UserService {
             return messageModel;
         }
 
-        //判断密码和确认密码是否一致
-        if (!StringUtil.isEqual(upwd, cupwd)){
-            messageModel.setCode(0);
-            messageModel.setMsg("密码和确认密码不一致!");
-
-            return messageModel;
-        }
 
         //判断用户名是否已使用
         SqlSession sqlSession = GetSqlSession.createSqlSession();
