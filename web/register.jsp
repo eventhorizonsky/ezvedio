@@ -33,23 +33,30 @@
 <!-- 抽屉式侧边栏 -->
 <div class="mdui-drawer mdui-shadow-1" id="left-drawer"  style="top:63px;background-color: #ffffff;box-shadow: 1px 0px 1px #e0e0e0;">
   <ul class="mdui-list">
-    <li class="mdui-list-item mdui-ripple">
-      <i class="mdui-icon material-icons mdui-list-item-icon">person</i>
-      <div class="mdui-list-item-content">登录/注册</div>
-    </li>
-    <li class="mdui-list-item mdui-ripple">
-      <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
-      <div class="mdui-list-item-content">招聘</div>
-    </li>
-    <li class="mdui-list-item mdui-ripple">
-      <i class="mdui-list-item-icon mdui-icon material-icons">send</i>
-      <div class="mdui-list-item-content">应聘</div>
-    </li>
-    <li class="mdui-list-item mdui-ripple">
-      <!-- <i class="mdui-list-item-icon mdui-icon material-icons">drafts</i> -->
-      <i class="mdui-icon material-icons mdui-list-item-icon">exit_to_app</i>
-      <div class="mdui-list-item-content">退出</div>
-    </li>
+    <a href="javascript:;">
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-icon material-icons mdui-list-item-icon">person</i>
+        <div class="mdui-list-item-content">登录/注册</div>
+      </li>
+    </a>
+    <a href="javascript:;">
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
+        <div class="mdui-list-item-content">招聘</div>
+      </li>
+    </a>
+    <a href="javascript:;">
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons">send</i>
+        <div class="mdui-list-item-content">应聘</div>
+      </li>
+    </a>
+    <a href="javascript:;">
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-icon material-icons mdui-list-item-icon">exit_to_app</i>
+        <div class="mdui-list-item-content">退出</div>
+      </li>
+    </a>
   </ul>
 </div>
 

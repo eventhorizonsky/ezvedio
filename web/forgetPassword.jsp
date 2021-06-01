@@ -36,7 +36,7 @@
         <li class="mdui-list-item mdui-ripple">
             <!-- <i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i> -->
             <i class="mdui-icon material-icons mdui-list-item-icon">person</i>
-            <div class="mdui-list-item-content">登录/注册</div>
+            <div class="mdui-list-item-content"><a href="login.jsp">登录/注册</a></div>
         </li>
         <li class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
