@@ -25,12 +25,11 @@ public class SignupServlet extends HttpServlet {
         //1.接收客户端的请求
         String uname = request.getParameter("uname");
         String upwd = request.getParameter("upwd");
-        String cupwd = request.getParameter("cupwd");
         String upnum = request.getParameter("upnum");
         String uemail = request.getParameter("uemail");
 
         //2.调用service层的方法, 返回消息模型对象
-        MessageModel messageModel = userService.userSignup(uname, upwd, cupwd, upnum, uemail);
+        MessageModel messageModel = userService.userSignup(uname, upwd, upnum, uemail);
 
         //3.判断消息状态码
         if(messageModel.getCode() == 1){  //成功

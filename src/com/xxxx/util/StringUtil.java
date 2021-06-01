@@ -20,8 +20,8 @@ public class StringUtil {
         return false;
     }
 
-    public static boolean isEqual(String pwd, String cpwd) {
-        if(pwd.equals(cpwd)) {
+    public static boolean isEqual(String str1, String str2) {
+        if(str1.equals(str2)) {
             return true;
         }
         return false;
