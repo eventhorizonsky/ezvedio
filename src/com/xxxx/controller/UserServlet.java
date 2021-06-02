@@ -21,7 +21,7 @@ public class UserServlet extends HttpServlet {
 
     /**
      * 用户登录
-         1.接收客户端的请求(接收参数: 姓名, 密码)
+         1.接收客户端的请求(接收参数: 电子邮箱, 密码)
          2.调用service层的方法, 返回消息模型对象
          3.判断消息模型状态码
              如果状态码是失败
@@ -36,12 +36,12 @@ public class UserServlet extends HttpServlet {
      */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1.接收客户端的请求(接收参数: 姓名, 密码)
-        String uname = request.getParameter("uname");
+        //1.接收客户端的请求(接收参数: 电子邮箱, 密码)
+        String uemail = request.getParameter("uemail");
         String upwd = request.getParameter("upwd");
 
         //2.调用service层的方法, 返回消息模型对象
-        MessageModel messageModel = userService.userLogin(uname, upwd);
+        MessageModel messageModel = userService.userLogin(uemail, upwd);
         //3.判断消息模型状态码
         if(messageModel.getCode() == 1){ //成功
             //将消息模型中的用户信设置到session作用域中, 重定向跳转到index.jsp
