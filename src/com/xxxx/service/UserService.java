@@ -4,8 +4,12 @@ import com.xxxx.entity.User;
 import com.xxxx.entity.vo.MessageModel;
 import com.xxxx.mapper.UserMapper;
 import com.xxxx.util.GetSqlSession;
+import com.xxxx.util.Mail;
 import com.xxxx.util.StringUtil;
 import org.apache.ibatis.session.SqlSession;
+
+import javax.mail.MessagingException;
+import java.security.GeneralSecurityException;
 
 /*
 * 业务逻辑
@@ -158,6 +162,108 @@ public class UserService {
         messageModel.setMsg("注册成功!");
         messageModel.setObject(user);
 
+        return messageModel;
+    }
+
+    /**
+     * 发送邮箱验证码
+     * 1.参数的非空判断
+     *      如果电子邮箱为空, 将状态码,提示信息,回显数据设置在消息模型对象中, 并返回消息模型对象
+     * 2.判断电子邮箱是否存在
+     *      如果电子邮箱不存在, 将状态码,提示信息,回显数据设置在消息模型对象中, 并返回消息模型对象
+     * 3.将用户信息存入消息模型对象中, 并返回消息模型对象
+     * @param uemail
+     * @return
+     */
+
+
+    public MessageModel usersendEmail(String uemail) {
+        MessageModel messageModel = new MessageModel();
+        User user = new User();
+
+        //回显数据
+        user.setUserEmail(uemail);
+
+        //判断电子邮箱是否为空
+        if(StringUtil.isEmpty(uemail)) {
+            messageModel.setCode(0);
+            messageModel.setMsg("电子邮箱不能为空!");
+            return messageModel;
+        }
+
+        //通过电子邮箱查询用户对象来判断电子邮箱是否存在
+        SqlSession sqlSession = GetSqlSession.createSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        if(userMapper.queryUserByEmail(uemail) == null) {
+            messageModel.setCode(0);
+            messageModel.setMsg("电子邮箱不存在!");
+            return messageModel;
+        }
+        //将用户的电子邮箱对应的用户名保存在用户对象中
+        user.setUserName(userMapper.queryUserByEmail(uemail).getUserName());
+
+        //将用户信息存入消息模型对象中, 并返回消息模型对象
+        messageModel.setObject(user);
+        return messageModel;
+
+    }
+
+    /**
+     * 判断邮箱验证码和用户输入验证码是否一致
+     * 1.参数的非空判断
+     *      如果参数为空, 将状态码, 提示信息, 回显数据设置到消息模型对象中并return
+     * 2.判断用户输入验证码是否与session中保存的验证码一致
+     *      如果一致, 将验证码设置在消息模型对象中并return
+     *      如果不一致, 将状态码, 提示信息, 回显数据设置到消息模型对象中并return
+     * @param code
+     * @return
+     */
+
+    public MessageModel userVcode(String code, String vcode) {
+        MessageModel messageModel = new MessageModel();
+
+        //1.参数的非空判断
+        if(StringUtil.isEmpty(code)){
+            messageModel.setCode(0);
+            messageModel.setMsg("验证码不能为空!");
+            return messageModel;
+        }
+
+        //2.判断用户输入验证码是否与session中保存的验证码一致
+        if(!code.equals(vcode)){
+            messageModel.setCode(0);
+            messageModel.setMsg("验证码不一致!");
+            return messageModel;
+        }
+        //返回消息模型对象
+
+        return messageModel;
+    }
+
+    /**
+     * 重新设置密码
+     * 1.参数的非空判断
+     *      如果参数为空, 将状态码, 提示信息, 回显数据设置在消息模型对象中,返回消息模型对象
+     * 2.将用户信息设置在消息模型对象中, 返回消息模型对象
+     * @param upwd
+     * @return
+     */
+    public MessageModel setPwd(String upwd) {
+        MessageModel messageModel = new MessageModel();
+        User user = new User();
+
+        //回显数据
+        user.setUserPwd(upwd);
+
+        //密码的非空判断
+        if(StringUtil.isEmpty(upwd)) {
+            messageModel.setCode(0);
+            messageModel.setMsg("密码不能为空!");
+            return messageModel;
+        }
+
+        //将用户信息设置在消息模型对象中, 返回消息模型对象
+        messageModel.setObject(user);
         return messageModel;
     }
 }

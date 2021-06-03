@@ -17,9 +17,11 @@
         INSERT INTO User VALUES(#{userEmail}, #{userPnum}, #{userName}, #{userPwd})
     </insert>
 
-    <delete id="deleteUserById" parameterType="Integer">
-        DELETE FROM tb_user WHERE userId = #{userId}
-    </delete>
+    <update id = "updatePwdByEmail">
+        UPDATE User SET userPwd = #{userPwd} WHERE userEmail = #{userEmail}
+    </update>
+
+
     <update id="updatePwdById">
         UPDATE tb_user SET userPwd = #{userPwd} WHERE userId = #{userId}
     </update>
