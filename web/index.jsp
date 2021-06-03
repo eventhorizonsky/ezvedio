@@ -15,6 +15,7 @@
       if(request.getSession().getAttribute("user") != null) {
     %>
     <h4>欢迎${user.userName}登录test123</h4>
+    <h3>${user.userPwd}测试</h3>
     <%
       }
       else{
