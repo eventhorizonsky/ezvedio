@@ -20,6 +20,20 @@ import java.io.IOException;
 public class SignupServlet extends HttpServlet {
     private UserService userService = new UserService();
 
+    /**
+    *用户注册
+     * 1.接收客户端的请求(接收参数: 用户名, 用户密码, 联系方式, 电子邮箱)
+     * 2.调用service层的方法, 并返回消息模型对象
+     * 3.判断消息模型对象的状态码
+     *     如果状态码为0
+     *         将消息模型对象设置到request作用域中, 请求转发跳转到注册界面(register.jsp)
+     *     如果状态码为1
+     *         将消息模型对象设置到session作用域中, 重定向跳转到登陆界面(login.jsp)
+* @param request
+* @param response
+* @throws ServletException
+* @throws IOException
+     */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1.接收客户端的请求

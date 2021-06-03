@@ -7,8 +7,14 @@
     <select id="queryUserByName" parameterType="String" resultType="com.xxxx.entity.User">
         SELECT * FROM User WHERE userName = #{userName}
     </select>
+    <select id="queryUserByPnum" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userPnum = #{userPnum}
+    </select>
+    <select id="queryUserByEmail" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userEmail = #{userEmail}
+    </select>
     <insert id="insertUser" parameterType="com.xxxx.entity.User">
-        INSERT INTO User VALUES(#{userName}, #{userPwd}, #{userPnum}, #{userEmail})
+        INSERT INTO User VALUES(#{userEmail}, #{userPnum}, #{userName}, #{userPwd})
     </insert>
 
     <delete id="deleteUserById" parameterType="Integer">
