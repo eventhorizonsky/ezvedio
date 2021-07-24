@@ -1,25 +1,34 @@
 package com.xxxx.test;
 
 import com.xxxx.entity.User;
+import com.xxxx.entity.Vedio;
+import com.xxxx.entity.vo.SearchModel;
 import com.xxxx.mapper.UserMapper;
+import com.xxxx.mapper.VedioMapper;
+import com.xxxx.service.VedioService;
 import com.xxxx.util.GetSqlSession;
+import com.xxxx.util.bvtoav;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 public class Test {
+    private static VedioService vedioService = new VedioService();
     public static void main(String[] args) {
-        //获取sqlSession对象
-        SqlSession session = GetSqlSession.createSqlSession();
-        //得到对应Mapper
-        UserMapper userMapper = session.getMapper(UserMapper.class);
-
-//        /*测试通过名字查询用户对象*/
-//        //调用方法,返回用户对象
-//        User user = userMapper.queryUserByName("admin");
-//        //测试连接数据库是否成功
-//        System.out.println(user);
-
-        User user  = new User("zs123", "123456", "789456", "456@456.com");
-        userMapper.insertUser(user);
-        session.commit();
+        String str ="";
+        String[] strArr = str.split(";");
+        String[] aid= bvtoav.BVTOAV(strArr);
+        for (int i = 0; i < aid.length; ++i){
+            System.out.println(aid[i]);
+        }
+//        Vedio vedio1=vedioService.quaryvediobyid("1");
+//        SqlSession session= GetSqlSession.createSqlSession();
+//        VedioMapper vedioMapper=session.getMapper(VedioMapper.class);
+//        List<Vedio> vedio= vedioMapper.queryVedioBysid(vedio1.getVedioname());
+//        int totalcount=vedioMapper.totalcount();
+//        SearchModel searchModel=new SearchModel();
+//        searchModel.setDate(vedio);
+//        searchModel.setTotalCount(totalcount);
+//        System.out.println(vedio);
     }
 }

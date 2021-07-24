@@ -97,14 +97,15 @@ public class UserService {
      * @return
      */
 
-    public MessageModel userSignup(String uname, String upwd, String upnum, String uemail){
+    public MessageModel userSignup(String uname, String upwd, String upnum, String uemail,String qq,String yzm){
         MessageModel messageModel = new MessageModel();
         User user = new User();  //构造函数
-
+        int yzmint= Integer.parseInt(yzm);
         //回显数据(不回显密码)
         user.setUserName(uname);
         user.setUserPnum(upnum);
         user.setUserEmail(uemail);
+        user.setQq(qq);
         messageModel.setObject(user);
 
         //参数非空判断
@@ -131,36 +132,23 @@ public class UserService {
             messageModel.setMsg("电子邮箱不能为空!");
 
             return messageModel;
+        }if(yzmint!=12138){
+            messageModel.setCode(0);
+            messageModel.setMsg("验证码错误");
+
+            return messageModel;
         }
 
 
         //判断用户名,电话号码,邮箱是否已使用
         SqlSession sqlSession = GetSqlSession.createSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        if(userMapper.queryUserByEmail(user.getUserEmail()) != null){
-            messageModel.setCode(0);
-            messageModel.setMsg("电子邮箱已存在!");
-
-            return messageModel;
-        }
-        if(userMapper.queryUserByPnum(user.getUserPnum()) != null){
-            messageModel.setCode(0);
-            messageModel.setMsg("联系方式已存在!");
-
-            return messageModel;
-        }
-        if(userMapper.queryUserByName(user.getUserName()) != null){
-            messageModel.setCode(0);
-            messageModel.setMsg("用户名已存在!");
-
-            return messageModel;
-        }
-
+        userMapper.insertUser(uname, upwd, upnum, uemail,qq);
+        sqlSession.commit();
         //注册成功
 
         messageModel.setCode(1);
         messageModel.setMsg("注册成功!");
-        messageModel.setObject(user);
 
         return messageModel;
     }
@@ -264,6 +252,69 @@ public class UserService {
 
         //将用户信息设置在消息模型对象中, 返回消息模型对象
         messageModel.setObject(user);
+        return messageModel;
+    }
+
+    public User quaryuserbyid(String userid) {
+        SqlSession sqlSession = GetSqlSession.createSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user=userMapper.quaryuserbyid(userid);
+        return user;
+    }
+
+    public MessageModel edituser(String uname, String upwd, String upnum, String uemail, String qq, String yzm, String userid) {
+        MessageModel messageModel = new MessageModel();
+        User user = new User();  //构造函数
+        int yzmint= Integer.parseInt(yzm);
+        //回显数据(不回显密码)
+        user.setUserName(uname);
+        user.setUserPnum(upnum);
+        user.setUserEmail(uemail);
+        user.setQq(qq);
+        messageModel.setObject(user);
+
+        //参数非空判断
+        if(StringUtil.isEmpty(uname)){
+            messageModel.setCode(0);
+            messageModel.setMsg("用户名不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(upwd)){
+            messageModel.setCode(0);
+            messageModel.setMsg("密码不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(upnum)){
+            messageModel.setCode(0);
+            messageModel.setMsg("联系方式不能为空!");
+
+            return messageModel;
+        }
+        if(StringUtil.isEmpty(uemail)){
+            messageModel.setCode(0);
+            messageModel.setMsg("电子邮箱不能为空!");
+
+            return messageModel;
+        }if(yzmint!=12138){
+            messageModel.setCode(0);
+            messageModel.setMsg("验证码错误");
+
+            return messageModel;
+        }
+
+
+        //判断用户名,电话号码,邮箱是否已使用
+        SqlSession sqlSession = GetSqlSession.createSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.updateUserbyid(uname, upwd, upnum, uemail,qq,userid);
+        sqlSession.commit();
+        //注册成功
+
+        messageModel.setCode(1);
+        messageModel.setMsg("注册成功!");
+
         return messageModel;
     }
 }

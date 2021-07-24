@@ -9,69 +9,51 @@
 <html>
 <head>
     <title>注册</title>
+  <meta name="viewport" content="width=device-width">
     <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
           integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
           crossorigin="anonymous"/>
 </head>
-<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto mdui-loaded" style="background-color: #fafafa;">
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto mdui-loaded" style="background-color: #fafafa;">
 
 <!-- 首页导航栏 -->
-<div class="mdui-appbar  mdui-appbar-fixed">
+<div class="mdui-appbar  mdui-appbar-fixed ">
   <div class="mdui-toolbar mdui-color-theme">
     <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}"><i class="mdui-icon material-icons">menu</i></a>
-    <a href="javascript:;" class="mdui-typo-headline">举贤</a>
-    <a href="javascript:;" class="mdui-typo-title">大学生多元兼职平台</a>
+    <a href="index.jsp;" class="mdui-typo-headline">EZ-VEDIO</a>
     <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">settings</i></a>
+
   </div>
 </div>
 
 <!-- 抽屉式侧边栏 -->
-<div class="mdui-drawer mdui-shadow-1" id="left-drawer"  style="top:63px;background-color: #ffffff;box-shadow: 1px 0px 1px #e0e0e0;">
+<div class="mdui-drawer mdui-drawer-close mdui-shadow-1" id="left-drawer"  style="background-color: #ffffff;box-shadow: 1px 0px 1px #e0e0e0;">
+
   <ul class="mdui-list">
-    <a href="javascript:;">
+    <a href="list">
       <li class="mdui-list-item mdui-ripple">
-        <i class="mdui-icon material-icons mdui-list-item-icon">person</i>
-        <div class="mdui-list-item-content">登录/注册</div>
+        <i class="mdui-icon material-icons mdui-list-item-icon">&#xe88a;</i>
+        <div class="mdui-list-item-content">首页</div>
       </li>
     </a>
-    <a href="javascript:;">
-      <li class="mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
-        <div class="mdui-list-item-content">招聘</div>
-      </li>
-    </a>
-    <a href="javascript:;">
-      <li class="mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons">send</i>
-        <div class="mdui-list-item-content">应聘</div>
-      </li>
-    </a>
-    <a href="javascript:;">
-      <li class="mdui-list-item mdui-ripple">
-        <i class="mdui-icon material-icons mdui-list-item-icon">exit_to_app</i>
-        <div class="mdui-list-item-content">退出</div>
-      </li>
-    </a>
+
   </ul>
 </div>
 
 <!-- 账号注册框 -->
-<div class="mdui-shadow-1 mdui-center mdui-m-b-5" style="background-color:white;height:690px;width:450px;border-radius:4px;margin-top: 50px;">
+<div class="mdui-shadow-1 mdui-center mdui-m-b-5" style="background-color:white;height:780px;width:450px;border-radius:4px;margin-top: 50px;">
   <div class="mdui-typo-headline" style="border-radius:4px;height: 80px;opacity:0.8;">
     &nbsp;
     <a style="opacity:1;font-size: 12px;text-decoration:none;color: blue;" href="login.jsp">返回登录</a>
-    <div class="mdui-valign" style="padding: 1px;"><p class="mdui-center"><img class="mdui-img-circle" src="logo.png"/>举贤网登录</p></div>
+    <div class="mdui-valign" style="padding: 1px;"><p class="mdui-center">注册账号【验证码找我拿】</p></div>
   </div>
   <div class="mdui-m-l-3 mdui-m-r-3" >
 
     <form action="register" method="post" id="loginForm">
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">姓&nbsp;&nbsp;名：</label>
+        <label class="mdui-textfield-label">昵&nbsp;&nbsp;称：</label>
         <input class="mdui-textfield-input" type="text" name="uname" id="uname" value="${messageModel.object.userName}"/>
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
@@ -83,16 +65,20 @@
         <input class="mdui-textfield-input" type="password" id="cupwd"/>
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">联系方式：</label>
-        <input class="mdui-textfield-input" type="password" name="upnum" id="upnum" value="${messageModel.object.userPnum}"/>
+        <label class="mdui-textfield-label">电话号码：</label>
+        <input class="mdui-textfield-input" type="text" name="upnum" id="upnum" value="${messageModel.object.userPnum}"/>
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
         <label class="mdui-textfield-label">电子邮箱：</label>
         <input class="mdui-textfield-input" type="email" name="uemail" id="uemail" value="${messageModel.object.userEmail}"/><br>
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label" style="margin-top: -12px;">
+        <label class="mdui-textfield-label">qq号【可以通过这项来设置您的头像为qq头像】</label>
+        <input class="mdui-textfield-input" type="email" name="qq"/><br>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label" style="margin-top: -12px;">
         <label class="mdui-textfield-label">验证码：</label>
-        <input class="mdui-textfield-input" type="email"/><br>
+        <input class="mdui-textfield-input" type="email" name="yzm"/><br>
       </div>
       <div class="mdui-valign">
         <span class="mdui-center" id="msg" style="font-size: 12px;letter-spacing:3px;opacity:0.5;color: red;">${messageModel.msg}</span>

@@ -7,6 +7,9 @@
     <select id="queryUserByName" parameterType="String" resultType="com.xxxx.entity.User">
         SELECT * FROM User WHERE userName = #{userName}
     </select>
+    <select id="quaryuserbyid" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userid = #{userid}
+    </select>
     <select id="queryUserByPnum" parameterType="String" resultType="com.xxxx.entity.User">
         SELECT * FROM User WHERE userPnum = #{userPnum}
     </select>
@@ -14,12 +17,16 @@
         SELECT * FROM User WHERE userEmail = #{userEmail}
     </select>
     <insert id="insertUser" parameterType="com.xxxx.entity.User">
-        INSERT INTO User VALUES(#{userEmail}, #{userPnum}, #{userName}, #{userPwd})
+        INSERT INTO User(userName,userPwd,userPnum,userEmail,qq) VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5})
     </insert>
+    <update id="updateUserbyid" parameterType="com.xxxx.entity.User">
+        update User SET userName=#{param1},userPwd=#{param2},userPnum=#{param3},userEmail=#{param4},qq=#{param5} where userid=#{param6}
+    </update>
+    <update id = "updatePwdByEmail">
+        UPDATE User SET userPwd = #{userPwd} WHERE userEmail = #{userEmail}
+    </update>
 
-    <delete id="deleteUserById" parameterType="Integer">
-        DELETE FROM tb_user WHERE userId = #{userId}
-    </delete>
+
     <update id="updatePwdById">
         UPDATE tb_user SET userPwd = #{userPwd} WHERE userId = #{userId}
     </update>

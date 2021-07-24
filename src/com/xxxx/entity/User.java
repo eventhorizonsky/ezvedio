@@ -8,6 +8,24 @@ public class User {
     private String userPwd; //用户密码
     private String userPnum; //联系方式
     private String userEmail; //电子邮箱
+    private String qq;
+    private String userid;
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 
     public User() {
 
