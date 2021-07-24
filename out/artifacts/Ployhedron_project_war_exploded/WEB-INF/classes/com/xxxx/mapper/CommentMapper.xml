@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 首先来解析namespace: 命名空间, 此属性通常用来映射Dao层接口(Mapper) -->
+<mapper namespace="com.xxxx.mapper.CommentMapper">
+    <resultMap id="comment" type="com.xxxx.entity.Comment">
+        <id column="commentid" property="commentid"/>
+        <result column="userid" property="userid"/>
+        <result column="username" property="username"/>
+        <result column="qq" property="qq"/>
+        <result column="comment" property="comment"/>
+        <result column="vedioid" property="vedioid"/>
+    </resultMap>
+
+    <select id="listcommentbyvedioid" resultMap="comment" >
+        select * from comment where vedioid=#{param1} order by vedioid limit #{param2},#{param3}
+    </select>
+    <select id="totalcount" resultType="int">
+        select COUNT(*) from comment where vedioid=#{param1}
+    </select>
+    <insert id="insertcomment" parameterType="com.xxxx.entity.Comment">
+        INSERT INTO comment (userid,username,comment,qq,vedioid) VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5})
+    </insert>
+
+</mapper>

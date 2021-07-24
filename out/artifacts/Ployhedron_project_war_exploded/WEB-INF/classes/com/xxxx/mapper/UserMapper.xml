@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 首先来解析namespace: 命名空间, 此属性通常用来映射Dao层接口(Mapper) -->
+<mapper namespace="com.xxxx.mapper.UserMapper">
+<!--    id: 对应Dao层(Mapper)接口方法名 parameterType: 指定参数类型 resultType: 指定返回值类型 -->
+<!--    useGeneratedKeys = "true" 把新增加的主键赋值到自己定义的keyProperty(id)中  -->
+    <select id="queryUserByName" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userName = #{userName}
+    </select>
+    <select id="quaryuserbyid" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userid = #{userid}
+    </select>
+    <select id="queryUserByPnum" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userPnum = #{userPnum}
+    </select>
+    <select id="queryUserByEmail" parameterType="String" resultType="com.xxxx.entity.User">
+        SELECT * FROM User WHERE userEmail = #{userEmail}
+    </select>
+    <insert id="insertUser" parameterType="com.xxxx.entity.User">
+        INSERT INTO User(userName,userPwd,userPnum,userEmail,qq) VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5})
+    </insert>
+    <update id="updateUserbyid" parameterType="com.xxxx.entity.User">
+        update User SET userName=#{param1},userPwd=#{param2},userPnum=#{param3},userEmail=#{param4},qq=#{param5} where userid=#{param6}
+    </update>
+    <update id = "updatePwdByEmail">
+        UPDATE User SET userPwd = #{userPwd} WHERE userEmail = #{userEmail}
+    </update>
+
+
+    <update id="updatePwdById">
+        UPDATE tb_user SET userPwd = #{userPwd} WHERE userId = #{userId}
+    </update>
+
+</mapper>
