@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 首先来解析namespace: 命名空间, 此属性通常用来映射Dao层接口(Mapper) -->
+<mapper namespace="com.xxxx.mapper.VedioMapper">
+<!--    id: 对应Dao层(Mapper)接口方法名 parameterType: 指定参数类型 resultType: 指定返回值类型 -->
+<!--    useGeneratedKeys = "true" 把新增加的主键赋值到自己定义的keyProperty(id)中  -->
+    <select id="quaryvediobyid" resultType="com.xxxx.entity.Vedio">
+        SELECT * FROM ezvedio WHERE vedioid = #{vedioid}
+    </select>
+    <resultMap id="vedio" type="com.xxxx.entity.Vedio">
+        <id column="vedioid" property="vedioid"/>
+        <result column="url" property="url"/>
+        <result column="vedioname" property="vedioname"/>
+        <result column="imgurl" property="imgurl"/>
+    </resultMap>
+
+    <select id="queryVedioByPage" resultMap="vedio" >
+        select * from ezvedio where sid=1 order by vedioid limit #{param1},#{param2}
+    </select>
+    <select id="queryVedioBysid" resultMap="vedio" >
+        select * from ezvedio  where vedioname=#{param1} order by sid
+    </select>
+    <select id="totalcount" resultType="int">
+        select COUNT(*) from ezvedio where sid=1
+    </select>
+    <insert id="insertvedio" parameterType="com.xxxx.entity.Vedio">
+        INSERT INTO ezvedio (vedioname,imgurl,introduction,url,bid,sid) VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5},#{param6})
+    </insert>
+
+</mapper>
