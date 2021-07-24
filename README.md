@@ -5,7 +5,7 @@
 
 ### 部署方法
 
-将发布版的文件移动到网站路径，创建数据库并导入date.sql文件，并修改\WEB-INF\classes\mysql.properties内的配置即可
+将发布版的文件移动到网站路径，创建数据库并导入ezvedio.sql文件，并修改\WEB-INF\classes\mysql.properties内的配置即可
 
 [项目演示页面](http://yx.ezsky.xyz/)
 
