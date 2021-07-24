@@ -141,7 +141,7 @@
         <c:forEach items="${vediolist}" var="v" varStatus="status">
           <a href="vedio?vedioid=${v.vedioid}">
             <div class="mdui-col-xs-6 mdui-col-md-2" style="margin-top:10px">
-              <div class="mdui-card" style="border-radius:15px;box-shadow:5px 5px 5px #888;height: 60%">
+              <div class="mdui-card" style="border-radius:15px;box-shadow:5px 5px 5px #888;">
 
                 <div class="mdui-card-media">
                   <img src="${v.imgurl}"/>
